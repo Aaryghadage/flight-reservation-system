@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -10,13 +10,46 @@ export default function Navbar() {
   const { currentUser, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(true);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
 
   const handleLogout = () => {
     logout();
     navigate('/');
   };
 
-  const closeMenu = () => setCollapsed(true);
+  const closeMenu = () => {
+    setCollapsed(true);
+    setProfileOpen(false);
+  };
+
+  // Close profile dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
+
+  // Close profile dropdown on Escape key
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setProfileOpen(false);
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const userInitials = (
+    (currentUser?.firstName?.[0] || '') + (currentUser?.lastName?.[0] || '')
+  ).toUpperCase() || 'U';
 
   const navLinkClass = ({ isActive }) =>
     `nav-link px-3 ${isActive ? 'active fw-semibold' : ''}`;
@@ -105,70 +138,208 @@ export default function Navbar() {
           {/* Right side */}
           <div className="d-flex align-items-center gap-2 mb-3 mb-lg-0">
             {isAuthenticated ? (
-              /* ── Profile dropdown ─────────────────────────────── */
-              <div className="dropdown">
+              /* ── Professional Profile dropdown ────────────────── */
+              <div className="position-relative" ref={profileRef}>
                 <button
-                  className="btn btn-outline-light btn-sm dropdown-toggle d-flex align-items-center gap-2"
                   type="button"
-                  id="profileDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                  id="profileDropdownBtn"
+                  onClick={() => setProfileOpen((prev) => !prev)}
+                  className="btn d-flex align-items-center gap-2 border-0 shadow-none text-start p-1 pe-3"
                   style={{
-                    borderColor: 'rgba(255,255,255,0.25)',
+                    background: profileOpen ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.08)',
+                    border: '1px solid rgba(255, 255, 255, 0.18)',
                     borderRadius: '50px',
-                    padding: '6px 16px',
+                    transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
+                  aria-expanded={profileOpen}
                 >
-                  <i className="bi bi-person-circle" style={{ fontSize: '1.15rem' }}></i>
-                  <span className="d-none d-md-inline">
-                    {currentUser?.firstName || 'User'}
+                  {/* Avatar circle */}
+                  <div
+                    className="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white shadow-sm"
+                    style={{
+                      width: 32,
+                      height: 32,
+                      background: 'linear-gradient(135deg, #0284c7, #2563eb)',
+                      fontSize: '0.8rem',
+                      letterSpacing: '0.5px',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {userInitials}
+                  </div>
+
+                  {/* Name */}
+                  <span className="fw-semibold text-white small d-none d-md-inline">
+                    {currentUser?.firstName || 'Account'}
                   </span>
+
+                  {/* Animated Chevron */}
+                  <i
+                    className="bi bi-chevron-down text-white-50"
+                    style={{
+                      fontSize: '0.72rem',
+                      transition: 'transform 0.2s ease',
+                      transform: profileOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    }}
+                  ></i>
                 </button>
 
-                <ul
-                  className="dropdown-menu dropdown-menu-end shadow-lg border-0 mt-2"
-                  aria-labelledby="profileDropdown"
-                  style={{ minWidth: '200px', borderRadius: '12px', overflow: 'hidden' }}
-                >
-                  <li className="px-3 py-2 border-bottom" style={{ backgroundColor: '#f8fafc' }}>
-                    <div className="fw-semibold" style={{ color: '#0a1628' }}>
-                      {currentUser?.firstName} {currentUser?.lastName}
-                    </div>
-                    <small className="text-muted">{currentUser?.email}</small>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item py-2"
-                      to="/profile"
-                      onClick={closeMenu}
-                    >
-                      <i className="bi bi-person me-2 text-primary"></i>My Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item py-2"
-                      to="/my-bookings"
-                      onClick={closeMenu}
-                    >
-                      <i className="bi bi-journal-bookmark me-2 text-primary"></i>My Bookings
-                    </Link>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider my-1" />
-                  </li>
-                  <li>
-                    <button
-                      className="dropdown-item py-2 text-danger"
-                      onClick={() => {
-                        closeMenu();
-                        handleLogout();
+                {/* Floating Dropdown Card — Pure absolute, no scrollbar */}
+                {profileOpen && (
+                  <div
+                    className="skybook-profile-card shadow-lg"
+                    style={{
+                      position: 'absolute',
+                      right: 0,
+                      top: 'calc(100% + 10px)',
+                      width: '280px',
+                      backgroundColor: '#ffffff',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      zIndex: 1100,
+                      boxShadow: '0 20px 45px -10px rgba(10, 22, 40, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.06)',
+                      animation: 'skybookDropdownIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    }}
+                  >
+                    {/* User Info Header */}
+                    <div
+                      className="p-3 text-white position-relative"
+                      style={{
+                        background: 'linear-gradient(135deg, #0a1628, #1e3a5f)',
                       }}
                     >
-                      <i className="bi bi-box-arrow-right me-2"></i>Logout
-                    </button>
-                  </li>
-                </ul>
+                      <div className="d-flex align-items-center gap-3">
+                        <div
+                          className="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white shadow"
+                          style={{
+                            width: 44,
+                            height: 44,
+                            background: 'linear-gradient(135deg, #38bdf8, #2563eb)',
+                            fontSize: '1rem',
+                            flexShrink: 0,
+                          }}
+                        >
+                          {userInitials}
+                        </div>
+                        <div style={{ minWidth: 0 }}>
+                          <div className="fw-bold text-truncate" style={{ fontSize: '0.95rem' }}>
+                            {currentUser?.firstName} {currentUser?.lastName}
+                          </div>
+                          <small className="text-white-50 text-truncate d-block" style={{ fontSize: '0.78rem' }}>
+                            {currentUser?.email || 'demo@skybook.com'}
+                          </small>
+                          <span
+                            className="badge mt-1 text-white"
+                            style={{
+                              backgroundColor: 'rgba(56, 189, 248, 0.25)',
+                              fontSize: '0.68rem',
+                              border: '1px solid rgba(56, 189, 248, 0.4)',
+                            }}
+                          >
+                            <i className="bi bi-shield-check me-1"></i>Verified Demo User
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Navigation Actions */}
+                    <div className="py-2">
+                      <Link
+                        to="/profile"
+                        className="skybook-dropdown-action"
+                        onClick={() => {
+                          setProfileOpen(false);
+                          closeMenu();
+                        }}
+                      >
+                        <div
+                          className="skybook-action-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ width: 34, height: 34, background: '#eff6ff', color: '#2563eb', flexShrink: 0 }}
+                        >
+                          <i className="bi bi-person-fill fs-6"></i>
+                        </div>
+                        <div>
+                          <div className="fw-semibold small text-dark">My Profile</div>
+                          <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>
+                            Personal info & preferences
+                          </small>
+                        </div>
+                      </Link>
+
+                      <Link
+                        to="/my-bookings"
+                        className="skybook-dropdown-action"
+                        onClick={() => {
+                          setProfileOpen(false);
+                          closeMenu();
+                        }}
+                      >
+                        <div
+                          className="skybook-action-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ width: 34, height: 34, background: '#f0fdf4', color: '#16a34a', flexShrink: 0 }}
+                        >
+                          <i className="bi bi-ticket-perforated-fill fs-6"></i>
+                        </div>
+                        <div>
+                          <div className="fw-semibold small text-dark">My Bookings</div>
+                          <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>
+                            Manage tickets & itineraries
+                          </small>
+                        </div>
+                      </Link>
+
+                      <Link
+                        to="/offers"
+                        className="skybook-dropdown-action"
+                        onClick={() => {
+                          setProfileOpen(false);
+                          closeMenu();
+                        }}
+                      >
+                        <div
+                          className="skybook-action-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ width: 34, height: 34, background: '#fef3c7', color: '#d97706', flexShrink: 0 }}
+                        >
+                          <i className="bi bi-tag-fill fs-6"></i>
+                        </div>
+                        <div>
+                          <div className="fw-semibold small text-dark">Offers & Deals</div>
+                          <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>
+                            Explore travel discounts
+                          </small>
+                        </div>
+                      </Link>
+                    </div>
+
+                    <div className="border-top" style={{ borderColor: '#f1f5f9' }}></div>
+
+                    {/* Logout Button */}
+                    <div className="p-2">
+                      <button
+                        type="button"
+                        className="skybook-dropdown-action skybook-logout-btn w-100 border-0 bg-transparent text-start"
+                        onClick={() => {
+                          setProfileOpen(false);
+                          closeMenu();
+                          handleLogout();
+                        }}
+                      >
+                        <div
+                          className="skybook-action-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ width: 34, height: 34, background: '#fee2e2', color: '#dc2626', flexShrink: 0 }}
+                        >
+                          <i className="bi bi-box-arrow-right fs-6"></i>
+                        </div>
+                        <div>
+                          <div className="fw-semibold small text-danger">Sign Out</div>
+                          <small className="text-muted d-block" style={{ fontSize: '0.72rem' }}>
+                            End current demo session
+                          </small>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               /* ── Login / Sign Up ──────────────────────────────── */
@@ -204,7 +375,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Inline custom styles for active links & hover */}
+      {/* Inline custom styles for active links, hover & profile menu */}
       <style>{`
         .navbar .nav-link {
           color: rgba(255,255,255,0.75) !important;
@@ -220,9 +391,38 @@ export default function Navbar() {
         .navbar .nav-link.active {
           background: rgba(37,99,235,0.25);
         }
-        .dropdown-item:active {
-          background-color: #2563eb !important;
-          color: #fff !important;
+        @keyframes skybookDropdownIn {
+          from {
+            opacity: 0;
+            transform: translateY(-8px) scale(0.96);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        .skybook-dropdown-action {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 8px 12px;
+          margin: 2px 8px;
+          border-radius: 12px;
+          text-decoration: none;
+          transition: background-color 0.15s ease, transform 0.15s ease;
+        }
+        .skybook-dropdown-action:hover {
+          background-color: #f1f5f9;
+          transform: translateX(3px);
+        }
+        .skybook-dropdown-action:hover .skybook-action-icon {
+          transform: scale(1.08);
+        }
+        .skybook-action-icon {
+          transition: transform 0.15s ease;
+        }
+        .skybook-logout-btn:hover {
+          background-color: #fef2f2 !important;
         }
       `}</style>
     </nav>
