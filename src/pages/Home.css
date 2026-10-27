@@ -1,0 +1,181 @@
+/* =============================
+   SkyBook Home Page Styles
+   ============================= */
+
+/* Hero Section */
+.skybook-hero {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.skybook-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2744 30%, #2563eb 70%, #38bdf8 100%);
+  background-size: 300% 300%;
+  animation: skybook-gradient-shift 12s ease infinite;
+  z-index: 0;
+}
+
+@keyframes skybook-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.skybook-hero-airplane {
+  position: absolute;
+  z-index: 1;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.08);
+  animation: skybook-fly 20s linear infinite;
+}
+
+.skybook-hero-airplane-2 {
+  top: 30%;
+  font-size: 1.5rem;
+  animation-duration: 28s;
+  animation-delay: 6s;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+@keyframes skybook-fly {
+  0% {
+    transform: translate(-100px, 0) rotate(-10deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translate(calc(100vw + 100px), -200px) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+.skybook-hero-title {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skybook-text-gradient {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skybook-hero-subtitle {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.skybook-search-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Destinations */
+.skybook-dest-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px !important;
+}
+
+.skybook-dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.skybook-dest-img {
+  border-radius: 16px 16px 0 0;
+}
+
+/* Deal Cards */
+.skybook-deal-card {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skybook-deal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Feature Cards */
+.skybook-feature-card {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skybook-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1) !important;
+}
+
+.skybook-feature-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Statistics */
+.skybook-stats {
+  position: relative;
+  overflow: hidden;
+}
+
+.skybook-stats-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%);
+  z-index: 0;
+}
+
+.skybook-stat-item {
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.skybook-stat-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Testimonials */
+.skybook-testimonial-card {
+  border-radius: 16px !important;
+  transition: transform 0.3s ease;
+}
+
+.skybook-testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Newsletter */
+.skybook-newsletter {
+  background: linear-gradient(135deg, #2563eb 0%, #0a1628 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skybook-hero {
+    min-height: 500px;
+    padding: 100px 0 60px;
+  }
+
+  .skybook-hero-title {
+    font-size: 2rem !important;
+  }
+
+  .skybook-search-glass {
+    padding: 1rem !important;
+  }
+}

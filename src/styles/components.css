@@ -1,0 +1,444 @@
+/* ═══════════════════════════════════════════════════════════════
+   SkyBook — Component Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.skybook-navbar {
+  background: var(--skybook-navy) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  padding: 0.6rem 0;
+  transition: var(--skybook-transition);
+}
+
+.skybook-navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skybook-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem !important;
+  transition: var(--skybook-transition);
+  border-radius: 6px;
+}
+
+.skybook-navbar .nav-link:hover,
+.skybook-navbar .nav-link.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.skybook-navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.4rem 0.6rem;
+}
+
+.skybook-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* ── Flight Search Form ─────────────────────────────────────── */
+.skybook-search-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--skybook-radius-lg);
+  box-shadow: var(--skybook-shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+}
+
+.skybook-search-form .form-control,
+.skybook-search-form .form-select {
+  border: 2px solid var(--skybook-gray-200);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  transition: var(--skybook-transition);
+}
+
+.skybook-search-form .form-control:focus,
+.skybook-search-form .form-select:focus {
+  border-color: var(--skybook-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.swap-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--skybook-blue);
+  background: white;
+  color: var(--skybook-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+  font-size: 1rem;
+}
+
+.swap-btn:hover {
+  background: var(--skybook-blue);
+  color: white;
+  transform: rotate(180deg);
+}
+
+.trip-type-btn {
+  border: 2px solid var(--skybook-gray-200);
+  background: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+}
+
+.trip-type-btn.active {
+  border-color: var(--skybook-blue);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--skybook-blue);
+}
+
+.passenger-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.passenger-control button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--skybook-gray-300);
+  background: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+}
+
+.passenger-control button:hover:not(:disabled) {
+  border-color: var(--skybook-blue);
+  color: var(--skybook-blue);
+}
+
+.passenger-control button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Flight Card ────────────────────────────────────────────── */
+.skybook-flight-card {
+  background: white;
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 1.5rem;
+  transition: var(--skybook-transition);
+  cursor: pointer;
+}
+
+.skybook-flight-card:hover {
+  box-shadow: var(--skybook-shadow-lg);
+  border-color: var(--skybook-blue);
+  transform: translateY(-2px);
+}
+
+.skybook-flight-card .airline-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: white;
+  background: var(--skybook-gradient);
+  flex-shrink: 0;
+}
+
+.flight-path {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 1;
+}
+
+.flight-path .path-line {
+  flex: 1;
+  height: 2px;
+  background: var(--skybook-gray-300);
+  position: relative;
+}
+
+.flight-path .path-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--skybook-blue);
+}
+
+/* ── Flight Filters ─────────────────────────────────────────── */
+.skybook-filters {
+  background: white;
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 1.5rem;
+}
+
+.skybook-filters h6 {
+  font-weight: 700;
+  color: var(--skybook-navy);
+  margin-bottom: 1rem;
+}
+
+.skybook-filters .filter-section {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--skybook-gray-100);
+}
+
+.skybook-filters .filter-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.skybook-filters .form-check-label {
+  font-size: 0.85rem;
+  color: var(--skybook-gray-600);
+}
+
+.skybook-filters .form-check-input:checked {
+  background-color: var(--skybook-blue);
+  border-color: var(--skybook-blue);
+}
+
+/* Price range inputs */
+.price-range-inputs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.price-range-inputs input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--skybook-gray-200);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ── Booking Summary ────────────────────────────────────────── */
+.skybook-booking-summary {
+  background: white;
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow);
+  border: 1px solid var(--skybook-gray-200);
+  overflow: hidden;
+}
+
+.skybook-booking-summary .summary-header {
+  background: var(--skybook-gradient);
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.skybook-booking-summary .summary-body {
+  padding: 1.5rem;
+}
+
+.skybook-booking-summary .fare-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+.skybook-booking-summary .fare-total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--skybook-blue);
+}
+
+/* ── Passenger Form ─────────────────────────────────────────── */
+.passenger-form-card {
+  border: 1px solid var(--skybook-gray-200);
+  border-radius: var(--skybook-radius);
+  overflow: hidden;
+}
+
+.passenger-form-card .accordion-button:not(.collapsed) {
+  background: rgba(37, 99, 235, 0.05);
+  color: var(--skybook-navy);
+}
+
+/* ── Payment Method Cards ───────────────────────────────────── */
+.payment-method-card {
+  border: 2px solid var(--skybook-gray-200);
+  border-radius: var(--skybook-radius);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+}
+
+.payment-method-card:hover {
+  border-color: var(--skybook-blue);
+  background: rgba(37, 99, 235, 0.02);
+}
+
+.payment-method-card.active {
+  border-color: var(--skybook-blue);
+  background: rgba(37, 99, 235, 0.05);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.payment-method-card .method-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* ── Toast Notifications ────────────────────────────────────── */
+.skybook-toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.skybook-toast {
+  min-width: 300px;
+  border-radius: 10px;
+  box-shadow: var(--skybook-shadow-lg);
+  animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ── Skeleton Loader ────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-text { height: 14px; margin-bottom: 8px; }
+.skeleton-text.short { width: 60%; }
+.skeleton-title { height: 22px; width: 40%; margin-bottom: 12px; }
+.skeleton-card {
+  height: 140px;
+  border-radius: var(--skybook-radius);
+  margin-bottom: 16px;
+}
+
+/* ── Empty State ────────────────────────────────────────────── */
+.skybook-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.skybook-empty-state .empty-icon {
+  font-size: 4rem;
+  color: var(--skybook-gray-300);
+  margin-bottom: 1rem;
+}
+
+/* ── Coupon Input ───────────────────────────────────────────── */
+.coupon-input-group {
+  border: 2px dashed var(--skybook-blue);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.coupon-input-group input {
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.coupon-input-group input:focus {
+  box-shadow: none;
+}
+
+/* ── Auth Pages ─────────────────────────────────────────────── */
+.skybook-auth-page {
+  min-height: 100vh;
+  background: var(--skybook-gradient);
+}
+
+.skybook-auth-page .skybook-card {
+  border: none;
+  box-shadow: var(--skybook-shadow-xl);
+}
+
+/* ── Print Styles ───────────────────────────────────────────── */
+@media print {
+  .skybook-navbar,
+  .no-print,
+  nav[aria-label="breadcrumb"],
+  footer,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .skybook-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+
+  #printable-ticket {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* ── Modal backdrop ─────────────────────────────────────────── */
+.modal.d-block {
+  z-index: 1060;
+}
+
+.modal-content {
+  border-radius: var(--skybook-radius);
+  border: none;
+  box-shadow: var(--skybook-shadow-xl);
+}

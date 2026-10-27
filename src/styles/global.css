@@ -1,0 +1,3558 @@
+/* ============================================================
+   SKYBOOK FLIGHT RESERVATION SYSTEM — Global Stylesheet
+   Premium, modern design with Aceternity-inspired effects
+   ============================================================ */
+
+/* -------------------------
+   Google Fonts Import
+   ------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* -------------------------
+   CSS Custom Properties
+   ------------------------- */
+:root {
+  --skybook-navy: #0a1628;
+  --skybook-navy-light: #132040;
+  --skybook-navy-dark: #060e1a;
+  --skybook-blue: #2563eb;
+  --skybook-blue-light: #3b82f6;
+  --skybook-blue-dark: #1d4ed8;
+  --skybook-sky: #38bdf8;
+  --skybook-sky-light: #7dd3fc;
+  --skybook-white: #ffffff;
+  --skybook-gray-50: #f8fafc;
+  --skybook-gray-100: #f1f5f9;
+  --skybook-gray-200: #e2e8f0;
+  --skybook-gray-300: #cbd5e1;
+  --skybook-gray-400: #94a3b8;
+  --skybook-gray-500: #64748b;
+  --skybook-gray-600: #475569;
+  --skybook-gray-700: #334155;
+  --skybook-gray-800: #1e293b;
+  --skybook-gray-900: #0f172a;
+  --skybook-green: #22c55e;
+  --skybook-green-light: #4ade80;
+  --skybook-green-dark: #16a34a;
+  --skybook-red: #ef4444;
+  --skybook-red-light: #fca5a5;
+  --skybook-orange: #f59e0b;
+  --skybook-orange-light: #fbbf24;
+  --skybook-purple: #8b5cf6;
+  --skybook-purple-light: #a78bfa;
+  --skybook-gradient: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #2563eb 100%);
+  --skybook-gradient-light: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%);
+  --skybook-gradient-blue: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%);
+  --skybook-gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  --skybook-gradient-success: linear-gradient(135deg, #22c55e 0%, #38bdf8 100%);
+  --skybook-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --skybook-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --skybook-shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.1), 0 3px 7px -3px rgba(0, 0, 0, 0.1);
+  --skybook-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --skybook-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --skybook-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --skybook-shadow-blue: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+  --skybook-shadow-navy: 0 4px 14px 0 rgba(10, 22, 40, 0.3);
+  --skybook-radius-sm: 6px;
+  --skybook-radius: 12px;
+  --skybook-radius-lg: 16px;
+  --skybook-radius-xl: 24px;
+  --skybook-radius-full: 9999px;
+  --skybook-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --skybook-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --skybook-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------------------
+   Global Reset & Base
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--skybook-gray-800);
+  background-color: var(--skybook-gray-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* -------------------------
+   Scrollbar Styling
+   ------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--skybook-gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--skybook-gray-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--skybook-gray-500);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--skybook-gray-400) var(--skybook-gray-100);
+}
+
+/* -------------------------
+   Selection Color
+   ------------------------- */
+::selection {
+  background: var(--skybook-blue);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--skybook-blue);
+  color: white;
+}
+
+/* -------------------------
+   Links
+   ------------------------- */
+a {
+  color: var(--skybook-blue);
+  text-decoration: none;
+  transition: var(--skybook-transition);
+}
+
+a:hover {
+  color: var(--skybook-blue-light);
+  text-decoration: none;
+}
+
+/* -------------------------
+   Images
+   ------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* -------------------------
+   Section Spacing
+   ------------------------- */
+.skybook-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.skybook-section-alt {
+  padding: 80px 0;
+  background: white;
+}
+
+.skybook-section-dark {
+  padding: 80px 0;
+  background: var(--skybook-navy);
+  color: white;
+}
+
+.skybook-section-title {
+  font-weight: 800;
+  font-size: 2.25rem;
+  color: var(--skybook-navy);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.skybook-section-subtitle {
+  color: var(--skybook-gray-500);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+/* -------------------------
+   Card Styling
+   ------------------------- */
+.skybook-card {
+  background: white;
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow);
+  border: 1px solid var(--skybook-gray-200);
+  transition: var(--skybook-transition);
+  overflow: hidden;
+}
+
+.skybook-card:hover {
+  box-shadow: var(--skybook-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.skybook-card-flat {
+  background: white;
+  border-radius: var(--skybook-radius);
+  border: 1px solid var(--skybook-gray-200);
+  transition: var(--skybook-transition);
+  overflow: hidden;
+}
+
+.skybook-card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--skybook-radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------
+   Buttons
+   ------------------------- */
+.btn-skybook {
+  background: var(--skybook-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-skybook::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-skybook:hover::before {
+  left: 100%;
+}
+
+.btn-skybook:hover {
+  background: var(--skybook-blue-light);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--skybook-shadow-blue);
+}
+
+.btn-skybook:active {
+  transform: translateY(0);
+}
+
+.btn-skybook:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-skybook-lg {
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+}
+
+.btn-skybook-sm {
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.btn-skybook-outline {
+  background: transparent;
+  color: var(--skybook-blue);
+  border: 2px solid var(--skybook-blue);
+  border-radius: 8px;
+  padding: 8px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-skybook-outline:hover {
+  background: var(--skybook-blue);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--skybook-shadow-blue);
+}
+
+.btn-skybook-outline-white {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 8px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-skybook-outline-white:hover {
+  background: white;
+  color: var(--skybook-navy);
+  border-color: white;
+}
+
+.btn-skybook-navy {
+  background: var(--skybook-navy);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-skybook-navy:hover {
+  background: var(--skybook-navy-light);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--skybook-shadow-navy);
+}
+
+.btn-skybook-success {
+  background: var(--skybook-green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-skybook-success:hover {
+  background: var(--skybook-green-dark);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-skybook-danger {
+  background: var(--skybook-red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--skybook-transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-skybook-danger:hover {
+  background: #dc2626;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-skybook-ghost {
+  background: transparent;
+  color: var(--skybook-gray-600);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: var(--skybook-transition);
+  cursor: pointer;
+}
+
+.btn-skybook-ghost:hover {
+  background: var(--skybook-gray-100);
+  color: var(--skybook-blue);
+}
+
+/* -------------------------
+   Form Styling
+   ------------------------- */
+.skybook-input {
+  border: 2px solid var(--skybook-gray-200);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  transition: var(--skybook-transition);
+  background: white;
+  width: 100%;
+  color: var(--skybook-gray-800);
+}
+
+.skybook-input:focus {
+  border-color: var(--skybook-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+.skybook-input::placeholder {
+  color: var(--skybook-gray-400);
+}
+
+.skybook-input-lg {
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  border-radius: 10px;
+}
+
+.skybook-input-error {
+  border-color: var(--skybook-red);
+}
+
+.skybook-input-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.skybook-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--skybook-gray-700);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.skybook-error-text {
+  color: var(--skybook-red);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.skybook-select {
+  border: 2px solid var(--skybook-gray-200);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  transition: var(--skybook-transition);
+  background: white;
+  width: 100%;
+  color: var(--skybook-gray-800);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.skybook-select:focus {
+  border-color: var(--skybook-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* -------------------------
+   Badge Styles
+   ------------------------- */
+.badge-skybook {
+  background: var(--skybook-blue);
+  color: white;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-economy {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-premium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-business {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.badge-first {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.badge-confirmed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge-refunded {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+/* ============================================================
+   NAVBAR STYLES
+   ============================================================ */
+.skybook-navbar {
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0;
+  transition: var(--skybook-transition);
+  z-index: 1050;
+}
+
+.skybook-navbar.scrolled {
+  background: rgba(10, 22, 40, 0.98);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.skybook-navbar .navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.02em;
+}
+
+.skybook-navbar .navbar-brand .brand-icon {
+  color: var(--skybook-sky);
+  font-size: 1.6rem;
+}
+
+.skybook-navbar .navbar-brand span {
+  background: linear-gradient(135deg, var(--skybook-sky), var(--skybook-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skybook-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 24px 16px !important;
+  transition: var(--skybook-transition);
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+.skybook-navbar .nav-link:hover,
+.skybook-navbar .nav-link.active {
+  color: white !important;
+}
+
+.skybook-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--skybook-sky);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.skybook-navbar .nav-link:hover::after,
+.skybook-navbar .nav-link.active::after {
+  width: 60%;
+}
+
+.skybook-navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  color: white;
+}
+
+.skybook-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+}
+
+.skybook-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-auth-btn {
+  background: var(--skybook-blue);
+  color: white !important;
+  border-radius: var(--skybook-radius-full);
+  padding: 8px 20px !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--skybook-transition);
+}
+
+.navbar-auth-btn:hover {
+  background: var(--skybook-blue-light);
+  transform: translateY(-1px);
+  box-shadow: var(--skybook-shadow-blue);
+}
+
+.navbar-user-dropdown .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white !important;
+  font-weight: 500;
+}
+
+.navbar-user-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+.navbar-user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--skybook-blue), var(--skybook-sky));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.navbar-user-dropdown .dropdown-menu {
+  background: white;
+  border: 1px solid var(--skybook-gray-200);
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow-xl);
+  padding: 8px;
+  min-width: 220px;
+  margin-top: 8px;
+}
+
+.navbar-user-dropdown .dropdown-item {
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--skybook-gray-700);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--skybook-transition-fast);
+}
+
+.navbar-user-dropdown .dropdown-item:hover {
+  background: var(--skybook-gray-50);
+  color: var(--skybook-blue);
+}
+
+.navbar-user-dropdown .dropdown-item.text-danger:hover {
+  background: #fef2f2;
+  color: var(--skybook-red);
+}
+
+.navbar-user-dropdown .dropdown-divider {
+  margin: 4px 0;
+  border-color: var(--skybook-gray-200);
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero-section {
+  min-height: 100vh;
+  background: var(--skybook-gradient);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.5) 0%, transparent 80%);
+  z-index: 1;
+  animation: heroGradientShift 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGradientShift {
+  0% {
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.5) 0%, transparent 80%);
+  }
+  50% {
+    background:
+      radial-gradient(ellipse at 40% 60%, rgba(56, 189, 248, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 40%, rgba(37, 99, 235, 0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.4) 0%, transparent 80%);
+  }
+  100% {
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(37, 99, 235, 0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 30% 70%, rgba(56, 189, 248, 0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(10, 22, 40, 0.45) 0%, transparent 80%);
+  }
+}
+
+/* Animated floating particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+
+.hero-particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; width: 3px; height: 3px; }
+.hero-particle:nth-child(2) { left: 25%; animation-duration: 25s; animation-delay: -5s; width: 5px; height: 5px; }
+.hero-particle:nth-child(3) { left: 40%; animation-duration: 18s; animation-delay: -3s; }
+.hero-particle:nth-child(4) { left: 55%; animation-duration: 22s; animation-delay: -8s; width: 6px; height: 6px; }
+.hero-particle:nth-child(5) { left: 70%; animation-duration: 24s; animation-delay: -2s; width: 3px; height: 3px; }
+.hero-particle:nth-child(6) { left: 85%; animation-duration: 19s; animation-delay: -6s; }
+.hero-particle:nth-child(7) { left: 15%; animation-duration: 21s; animation-delay: -10s; width: 5px; height: 5px; }
+.hero-particle:nth-child(8) { left: 50%; animation-duration: 26s; animation-delay: -4s; width: 3px; height: 3px; }
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Animated airplane trail */
+.hero-airplane {
+  position: absolute;
+  z-index: 2;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.15);
+  animation: airplaneFly 15s linear infinite;
+}
+
+@keyframes airplaneFly {
+  0% {
+    transform: translate(-100px, 300px) rotate(-15deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw + 100px), -100px) rotate(-15deg);
+    opacity: 0;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title .highlight {
+  background: linear-gradient(135deg, var(--skybook-sky), var(--skybook-sky-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 3rem;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   SEARCH FORM — Glass Morphism
+   ============================================================ */
+.search-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--skybook-radius-xl);
+  padding: 32px;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.search-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.search-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.search-card .trip-type-toggle {
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--skybook-radius-full);
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.search-card .trip-type-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--skybook-radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  transition: var(--skybook-transition);
+  cursor: pointer;
+}
+
+.search-card .trip-type-btn.active {
+  background: var(--skybook-blue);
+  color: white;
+  box-shadow: var(--skybook-shadow-blue);
+}
+
+.search-card .form-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.search-card .form-control,
+.search-card .form-select {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: white;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--skybook-transition);
+}
+
+.search-card .form-control:focus,
+.search-card .form-select:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--skybook-sky);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  color: white;
+}
+
+.search-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.search-card .form-select option {
+  background: var(--skybook-navy);
+  color: white;
+}
+
+.search-card .swap-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.search-card .swap-btn:hover {
+  background: var(--skybook-blue);
+  border-color: var(--skybook-blue);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.search-btn {
+  background: linear-gradient(135deg, var(--skybook-blue), var(--skybook-sky));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  transition: var(--skybook-transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.search-btn:hover::before {
+  left: 100%;
+}
+
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+}
+
+/* ============================================================
+   FLIGHT CARD STYLES
+   ============================================================ */
+.flight-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 24px;
+  transition: var(--skybook-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--skybook-blue);
+  opacity: 0;
+  transition: var(--skybook-transition);
+}
+
+.flight-card:hover {
+  border-color: var(--skybook-blue-light);
+  box-shadow: var(--skybook-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.flight-card:hover::before {
+  opacity: 1;
+}
+
+.flight-card .airline-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--skybook-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.flight-card .airline-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--skybook-gray-800);
+}
+
+.flight-card .flight-number {
+  font-size: 0.8rem;
+  color: var(--skybook-gray-500);
+}
+
+.flight-card .flight-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--skybook-navy);
+  letter-spacing: -0.02em;
+}
+
+.flight-card .flight-city {
+  font-size: 0.85rem;
+  color: var(--skybook-gray-500);
+  font-weight: 500;
+}
+
+.flight-card .flight-code {
+  font-size: 0.75rem;
+  color: var(--skybook-gray-400);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Flight path timeline */
+.flight-path {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.flight-path-line {
+  flex: 1;
+  height: 2px;
+  background: var(--skybook-gray-300);
+  position: relative;
+}
+
+.flight-path-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--skybook-blue);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--skybook-blue);
+}
+
+.flight-path-line::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--skybook-blue);
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px var(--skybook-blue);
+}
+
+.flight-path-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--skybook-blue);
+  font-size: 1rem;
+  background: white;
+  padding: 2px 8px;
+  z-index: 2;
+}
+
+.flight-duration {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--skybook-gray-500);
+  white-space: nowrap;
+}
+
+.flight-stops {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--skybook-green);
+  white-space: nowrap;
+}
+
+.flight-stops.has-stops {
+  color: var(--skybook-orange);
+}
+
+.flight-card .flight-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--skybook-navy);
+  letter-spacing: -0.02em;
+}
+
+.flight-card .flight-price-label {
+  font-size: 0.75rem;
+  color: var(--skybook-gray-500);
+}
+
+.flight-card .original-price {
+  text-decoration: line-through;
+  color: var(--skybook-gray-400);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
+.feature-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid var(--skybook-gray-200);
+  transition: var(--skybook-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--skybook-gradient-blue);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--skybook-shadow-xl);
+}
+
+.feature-card .feature-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--skybook-blue);
+  margin: 0 auto 20px;
+  transition: var(--skybook-transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: var(--skybook-gradient-blue);
+  color: white;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.feature-card .feature-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--skybook-navy);
+  margin-bottom: 8px;
+}
+
+.feature-card .feature-desc {
+  font-size: 0.9rem;
+  color: var(--skybook-gray-500);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   DESTINATION CARDS
+   ============================================================ */
+.destination-card {
+  border-radius: var(--skybook-radius-lg);
+  overflow: hidden;
+  position: relative;
+  height: 320px;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--skybook-shadow-2xl);
+}
+
+.destination-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.destination-card:hover .destination-card-img {
+  transform: scale(1.1);
+}
+
+.destination-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  z-index: 2;
+}
+
+.destination-card-title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.destination-card-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+}
+
+.destination-card-price {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--skybook-radius-full);
+  padding: 6px 16px;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 3;
+}
+
+.destination-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--skybook-red);
+  color: white;
+  border-radius: var(--skybook-radius-full);
+  padding: 4px 12px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  z-index: 3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   TESTIMONIAL CARDS
+   ============================================================ */
+.testimonial-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  padding: 32px;
+  border: 1px solid var(--skybook-gray-200);
+  transition: var(--skybook-transition);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 4rem;
+  color: var(--skybook-gray-200);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--skybook-shadow-lg);
+}
+
+.testimonial-stars {
+  color: var(--skybook-orange);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  color: var(--skybook-gray-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--skybook-gradient-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.testimonial-author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--skybook-navy);
+}
+
+.testimonial-author-role {
+  font-size: 0.8rem;
+  color: var(--skybook-gray-500);
+}
+
+/* ============================================================
+   OFFER CARDS
+   ============================================================ */
+.offer-card {
+  border-radius: var(--skybook-radius-lg);
+  overflow: hidden;
+  position: relative;
+  padding: 32px;
+  color: white;
+  transition: var(--skybook-transition);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--skybook-shadow-2xl);
+}
+
+.offer-card-gradient-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.offer-card-gradient-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.offer-card-gradient-3 {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.offer-card-gradient-4 {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.offer-card-gradient-5 {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.offer-card-gradient-6 {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.offer-card-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  opacity: 0.1;
+  background-image: radial-gradient(circle, white 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.offer-card .offer-discount {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.offer-card .offer-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.offer-card .offer-desc {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+.offer-card .offer-code {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+.offer-card .offer-validity {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   STATISTICS / COUNTERS
+   ============================================================ */
+.stats-section {
+  background: var(--skybook-navy);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, white, var(--skybook-sky));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--skybook-sky);
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-animate {
+  animation: countUp 0.8s ease-out forwards;
+}
+
+/* ============================================================
+   LOGIN / SIGNUP FORM STYLES
+   ============================================================ */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--skybook-gradient);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+}
+
+.auth-card {
+  background: white;
+  border-radius: var(--skybook-radius-xl);
+  box-shadow: var(--skybook-shadow-2xl);
+  overflow: hidden;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-card-header {
+  background: var(--skybook-navy);
+  padding: 40px 40px 32px;
+  text-align: center;
+}
+
+.auth-card-header .brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.auth-card-header .brand span {
+  background: linear-gradient(135deg, var(--skybook-sky), var(--skybook-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-card-header p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.auth-card-body {
+  padding: 40px;
+}
+
+.auth-card-body .form-group {
+  margin-bottom: 20px;
+}
+
+.auth-card-body .input-icon-wrapper {
+  position: relative;
+}
+
+.auth-card-body .input-icon-wrapper i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--skybook-gray-400);
+  font-size: 1rem;
+}
+
+.auth-card-body .input-icon-wrapper input {
+  padding-left: 42px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  color: var(--skybook-gray-400);
+  font-size: 0.85rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--skybook-gray-200);
+}
+
+.auth-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--skybook-gray-200);
+  border-radius: 10px;
+  background: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--skybook-gray-700);
+  transition: var(--skybook-transition);
+  cursor: pointer;
+}
+
+.auth-social-btn:hover {
+  border-color: var(--skybook-gray-300);
+  background: var(--skybook-gray-50);
+}
+
+/* ============================================================
+   PASSENGER FORM STYLES
+   ============================================================ */
+.passenger-form-section {
+  background: var(--skybook-gray-50);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.passenger-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  overflow: hidden;
+  transition: var(--skybook-transition);
+}
+
+.passenger-card-header {
+  background: var(--skybook-gray-50);
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--skybook-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+}
+
+.passenger-card-header:hover {
+  background: var(--skybook-gray-100);
+}
+
+.passenger-card-header .passenger-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--skybook-blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.passenger-card-body {
+  padding: 24px;
+}
+
+/* ============================================================
+   PAYMENT PAGE STYLES
+   ============================================================ */
+.payment-section {
+  background: var(--skybook-gray-50);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.payment-method-card {
+  background: white;
+  border-radius: var(--skybook-radius);
+  border: 2px solid var(--skybook-gray-200);
+  padding: 20px;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.payment-method-card:hover {
+  border-color: var(--skybook-blue-light);
+  background: #f0f7ff;
+}
+
+.payment-method-card.selected {
+  border-color: var(--skybook-blue);
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.payment-method-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--skybook-radius);
+  background: var(--skybook-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--skybook-blue);
+  transition: var(--skybook-transition);
+}
+
+.payment-method-card.selected .payment-method-icon {
+  background: var(--skybook-blue);
+  color: white;
+}
+
+.payment-method-name {
+  font-weight: 600;
+  color: var(--skybook-gray-800);
+  font-size: 0.95rem;
+}
+
+.payment-method-desc {
+  font-size: 0.8rem;
+  color: var(--skybook-gray-500);
+}
+
+.payment-summary-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+}
+
+.payment-summary-header {
+  background: var(--skybook-navy);
+  padding: 20px 24px;
+  color: white;
+}
+
+.payment-summary-body {
+  padding: 24px;
+}
+
+.payment-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+.payment-summary-row.total {
+  border-top: 2px solid var(--skybook-gray-200);
+  margin-top: 8px;
+  padding-top: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--skybook-navy);
+}
+
+/* ============================================================
+   BOOKING CONFIRMATION / CELEBRATION
+   ============================================================ */
+.confirmation-page {
+  min-height: 100vh;
+  background: var(--skybook-gray-50);
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.confirmation-card {
+  background: white;
+  border-radius: var(--skybook-radius-xl);
+  box-shadow: var(--skybook-shadow-xl);
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.confirmation-header {
+  background: linear-gradient(135deg, #22c55e, #38bdf8);
+  padding: 48px 40px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.confirmation-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  animation: celebrationPulse 3s ease-in-out infinite;
+}
+
+@keyframes celebrationPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.confirmation-checkmark {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2.5rem;
+  animation: checkmarkBounce 0.6s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes checkmarkBounce {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.confirmation-body {
+  padding: 40px;
+}
+
+/* Confetti animation */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotateZ(0deg) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotateZ(720deg) rotateX(360deg);
+    opacity: 0;
+  }
+}
+
+/* Booking reference styling */
+.booking-ref {
+  background: var(--skybook-gray-50);
+  border: 2px dashed var(--skybook-gray-300);
+  border-radius: var(--skybook-radius);
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.booking-ref-code {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--skybook-navy);
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.booking-ref-label {
+  font-size: 0.8rem;
+  color: var(--skybook-gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   PROFILE PAGE STYLES
+   ============================================================ */
+.profile-page {
+  background: var(--skybook-gray-50);
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.profile-header {
+  background: var(--skybook-gradient);
+  border-radius: var(--skybook-radius-xl);
+  padding: 40px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--skybook-blue), var(--skybook-sky));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.profile-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  overflow: hidden;
+}
+
+.profile-card-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--skybook-gray-200);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-card-header h5 {
+  font-weight: 700;
+  margin: 0;
+  color: var(--skybook-navy);
+}
+
+.profile-card-body {
+  padding: 24px;
+}
+
+/* ============================================================
+   BREADCRUMB CUSTOM STYLES
+   ============================================================ */
+.skybook-breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.skybook-breadcrumb .breadcrumb-item {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skybook-breadcrumb .breadcrumb-item a {
+  color: var(--skybook-blue);
+  text-decoration: none;
+}
+
+.skybook-breadcrumb .breadcrumb-item a:hover {
+  color: var(--skybook-blue-dark);
+  text-decoration: underline;
+}
+
+.skybook-breadcrumb .breadcrumb-item.active {
+  color: var(--skybook-gray-500);
+}
+
+.skybook-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  content: '\F285';
+  font-family: 'bootstrap-icons';
+  font-size: 0.7rem;
+  color: var(--skybook-gray-400);
+}
+
+/* ============================================================
+   PROGRESS INDICATOR (Booking Flow Steps)
+   ============================================================ */
+.booking-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.booking-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.booking-step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--skybook-transition);
+  border: 2px solid var(--skybook-gray-300);
+  color: var(--skybook-gray-400);
+  background: white;
+  flex-shrink: 0;
+}
+
+.booking-step.active .booking-step-circle {
+  background: var(--skybook-blue);
+  border-color: var(--skybook-blue);
+  color: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.booking-step.completed .booking-step-circle {
+  background: var(--skybook-green);
+  border-color: var(--skybook-green);
+  color: white;
+}
+
+.booking-step-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--skybook-gray-400);
+  white-space: nowrap;
+}
+
+.booking-step.active .booking-step-label {
+  color: var(--skybook-blue);
+}
+
+.booking-step.completed .booking-step-label {
+  color: var(--skybook-green);
+}
+
+.booking-step-connector {
+  width: 60px;
+  height: 2px;
+  background: var(--skybook-gray-300);
+  margin: 0 4px;
+  flex-shrink: 0;
+}
+
+.booking-step-connector.completed {
+  background: var(--skybook-green);
+}
+
+/* ============================================================
+   TOAST NOTIFICATION STYLES
+   ============================================================ */
+.skybook-toast {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 10000;
+  min-width: 320px;
+  max-width: 420px;
+  background: white;
+  border-radius: var(--skybook-radius);
+  box-shadow: var(--skybook-shadow-xl);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: toastSlideIn 0.4s ease-out;
+  overflow: hidden;
+}
+
+.skybook-toast::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.skybook-toast.success::before { background: var(--skybook-green); }
+.skybook-toast.error::before { background: var(--skybook-red); }
+.skybook-toast.warning::before { background: var(--skybook-orange); }
+.skybook-toast.info::before { background: var(--skybook-blue); }
+
+.skybook-toast-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.skybook-toast.success .skybook-toast-icon { background: #dcfce7; color: var(--skybook-green); }
+.skybook-toast.error .skybook-toast-icon { background: #fee2e2; color: var(--skybook-red); }
+.skybook-toast.warning .skybook-toast-icon { background: #fef3c7; color: var(--skybook-orange); }
+.skybook-toast.info .skybook-toast-icon { background: #dbeafe; color: var(--skybook-blue); }
+
+.skybook-toast-content {
+  flex: 1;
+}
+
+.skybook-toast-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--skybook-gray-800);
+  margin-bottom: 2px;
+}
+
+.skybook-toast-message {
+  font-size: 0.85rem;
+  color: var(--skybook-gray-500);
+}
+
+.skybook-toast-close {
+  background: none;
+  border: none;
+  color: var(--skybook-gray-400);
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0;
+  transition: var(--skybook-transition-fast);
+}
+
+.skybook-toast-close:hover {
+  color: var(--skybook-gray-700);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   SKELETON LOADER ANIMATIONS
+   ============================================================ */
+.skeleton {
+  background: var(--skybook-gray-200);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: skeletonShimmer 1.5s infinite;
+}
+
+@keyframes skeletonShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.skeleton-text {
+  height: 14px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text-sm {
+  height: 10px;
+  width: 60%;
+  margin-bottom: 8px;
+}
+
+.skeleton-title {
+  height: 24px;
+  width: 70%;
+  margin-bottom: 12px;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-card {
+  background: white;
+  border-radius: var(--skybook-radius);
+  padding: 24px;
+  border: 1px solid var(--skybook-gray-200);
+}
+
+/* ============================================================
+   EMPTY STATE STYLES
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--skybook-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 3rem;
+  color: var(--skybook-gray-400);
+}
+
+.empty-state-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--skybook-navy);
+  margin-bottom: 8px;
+}
+
+.empty-state-desc {
+  font-size: 0.95rem;
+  color: var(--skybook-gray-500);
+  max-width: 400px;
+  margin: 0 auto 24px;
+}
+
+/* ============================================================
+   FOOTER STYLES
+   ============================================================ */
+.skybook-footer {
+  background: var(--skybook-navy);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.skybook-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+}
+
+.footer-main {
+  padding: 60px 0 40px;
+}
+
+.footer-brand {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-brand span {
+  background: linear-gradient(135deg, var(--skybook-sky), var(--skybook-blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-desc {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  transition: var(--skybook-transition);
+  font-size: 1rem;
+}
+
+.footer-social-link:hover {
+  background: var(--skybook-blue);
+  border-color: var(--skybook-blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer-heading {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  transition: var(--skybook-transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-links a:hover {
+  color: var(--skybook-sky);
+  transform: translateX(4px);
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.footer-contact-item i {
+  color: var(--skybook-sky);
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.footer-newsletter {
+  margin-top: 8px;
+}
+
+.footer-newsletter .input-group {
+  border-radius: var(--skybook-radius);
+  overflow: hidden;
+}
+
+.footer-newsletter input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+}
+
+.footer-newsletter input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-newsletter input:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--skybook-sky);
+  box-shadow: none;
+  color: white;
+}
+
+.footer-newsletter .btn {
+  background: var(--skybook-blue);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+
+.footer-newsletter .btn:hover {
+  background: var(--skybook-blue-light);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.footer-bottom-links a {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--skybook-sky);
+}
+
+/* ============================================================
+   ACETERNITY-INSPIRED EFFECTS
+   ============================================================ */
+
+/* Moving Gradient Border Effect */
+.gradient-border {
+  position: relative;
+  border-radius: var(--skybook-radius-lg);
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(
+    from 0deg,
+    var(--skybook-blue),
+    var(--skybook-sky),
+    var(--skybook-purple),
+    var(--skybook-blue-light),
+    var(--skybook-sky-light),
+    var(--skybook-blue)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotateBorder 4s linear infinite;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: calc(var(--skybook-radius-lg) - 2px);
+  z-index: -1;
+}
+
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Spotlight / Glow Effect */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--skybook-radius-lg);
+  background: white;
+  border: 1px solid var(--skybook-gray-200);
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Glow effect on buttons */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: var(--skybook-blue);
+  border-radius: inherit;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.4;
+}
+
+/* Animated gradient text */
+.gradient-text-animated {
+  background: linear-gradient(270deg, var(--skybook-blue), var(--skybook-sky), var(--skybook-purple-light), var(--skybook-blue));
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientTextMove 6s ease infinite;
+}
+
+@keyframes gradientTextMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer text effect */
+.shimmer-text {
+  background: linear-gradient(90deg, var(--skybook-navy) 40%, var(--skybook-sky) 50%, var(--skybook-navy) 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerMove 3s linear infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: var(--skybook-transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--skybook-shadow-xl);
+}
+
+/* Pulse ring effect */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  border: 2px solid var(--skybook-blue);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Float animation */
+.float-animation {
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Spotlight border glow */
+.border-glow {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--skybook-radius);
+}
+
+.border-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--skybook-blue), var(--skybook-sky), var(--skybook-purple));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.border-glow:hover::before {
+  opacity: 1;
+}
+
+/* Slide up on scroll animation */
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale in animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.5s ease-out;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger children */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children > *:nth-child(6) { transition-delay: 500ms; }
+.stagger-children > *:nth-child(7) { transition-delay: 600ms; }
+.stagger-children > *:nth-child(8) { transition-delay: 700ms; }
+
+/* ============================================================
+   ABOUT PAGE STYLES
+   ============================================================ */
+.about-hero {
+  background: var(--skybook-gradient);
+  padding: 120px 0 80px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 30% 70%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+}
+
+.about-value-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  padding: 32px;
+  border: 1px solid var(--skybook-gray-200);
+  text-align: center;
+  transition: var(--skybook-transition);
+  height: 100%;
+}
+
+.about-value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--skybook-shadow-lg);
+  border-color: var(--skybook-blue-light);
+}
+
+.about-value-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--skybook-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 16px;
+  transition: var(--skybook-transition);
+}
+
+.team-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--skybook-gray-200);
+  transition: var(--skybook-transition);
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--skybook-shadow-lg);
+}
+
+.team-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 24px auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+}
+
+/* ============================================================
+   CONTACT PAGE STYLES
+   ============================================================ */
+.contact-hero {
+  background: var(--skybook-gradient);
+  padding: 120px 0 80px;
+  color: white;
+  position: relative;
+}
+
+.contact-info-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  padding: 32px;
+  border: 1px solid var(--skybook-gray-200);
+  text-align: center;
+  transition: var(--skybook-transition);
+  height: 100%;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--skybook-shadow-lg);
+}
+
+.contact-info-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto 16px;
+  background: #e0f2fe;
+  color: var(--skybook-blue);
+}
+
+.contact-form-card {
+  background: white;
+  border-radius: var(--skybook-radius-xl);
+  box-shadow: var(--skybook-shadow-xl);
+  padding: 40px;
+}
+
+/* ============================================================
+   NOT FOUND PAGE
+   ============================================================ */
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--skybook-gradient);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.notfound-404 {
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(56, 189, 248, 0.3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   FLIGHT DETAILS PAGE
+   ============================================================ */
+.flight-details-header {
+  background: var(--skybook-gradient);
+  padding: 120px 0 60px;
+  color: white;
+  position: relative;
+}
+
+.flight-details-card {
+  background: white;
+  border-radius: var(--skybook-radius-xl);
+  box-shadow: var(--skybook-shadow-xl);
+  margin-top: -40px;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.flight-details-amenity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--skybook-gray-100);
+}
+
+.flight-details-amenity:last-child {
+  border-bottom: none;
+}
+
+.flight-details-amenity i {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #e0f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--skybook-blue);
+  font-size: 1rem;
+}
+
+/* ============================================================
+   MY BOOKINGS PAGE
+   ============================================================ */
+.booking-list-card {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 24px;
+  transition: var(--skybook-transition);
+  cursor: pointer;
+}
+
+.booking-list-card:hover {
+  box-shadow: var(--skybook-shadow-lg);
+  border-color: var(--skybook-blue-light);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   COUPON INPUT
+   ============================================================ */
+.coupon-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.coupon-input-group input {
+  flex: 1;
+  border: 2px dashed var(--skybook-gray-300);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--skybook-transition);
+}
+
+.coupon-input-group input:focus {
+  border-color: var(--skybook-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.coupon-input-group .apply-btn {
+  background: var(--skybook-navy);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--skybook-transition);
+  white-space: nowrap;
+}
+
+.coupon-input-group .apply-btn:hover {
+  background: var(--skybook-blue);
+}
+
+.coupon-applied {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #166534;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   FILTER SIDEBAR
+   ============================================================ */
+.filter-sidebar {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  border: 1px solid var(--skybook-gray-200);
+  padding: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.filter-section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--skybook-gray-200);
+}
+
+.filter-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.filter-section-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--skybook-navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--skybook-blue);
+  cursor: pointer;
+}
+
+.filter-checkbox label {
+  font-size: 0.9rem;
+  color: var(--skybook-gray-700);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.filter-checkbox .count {
+  font-size: 0.75rem;
+  color: var(--skybook-gray-400);
+}
+
+.filter-range {
+  width: 100%;
+}
+
+.filter-range input[type="range"] {
+  width: 100%;
+  accent-color: var(--skybook-blue);
+}
+
+.filter-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--skybook-gray-500);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   LOADING SPINNER
+   ============================================================ */
+.skybook-spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--skybook-gray-200);
+  border-top-color: var(--skybook-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.skybook-spinner-sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.skybook-spinner-lg {
+  width: 60px;
+  height: 60px;
+  border-width: 5px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  gap: 16px;
+}
+
+.loading-text {
+  font-size: 0.95rem;
+  color: var(--skybook-gray-500);
+  font-weight: 500;
+}
+
+/* ============================================================
+   MISC UTILITY CLASSES
+   ============================================================ */
+.text-skybook { color: var(--skybook-blue) !important; }
+.text-navy { color: var(--skybook-navy) !important; }
+.text-sky { color: var(--skybook-sky) !important; }
+.bg-skybook { background-color: var(--skybook-blue) !important; }
+.bg-navy { background-color: var(--skybook-navy) !important; }
+
+.divider {
+  height: 1px;
+  background: var(--skybook-gray-200);
+  margin: 16px 0;
+}
+
+.divider-vertical {
+  width: 1px;
+  background: var(--skybook-gray-200);
+  align-self: stretch;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.page-header {
+  background: var(--skybook-gradient);
+  padding: 120px 0 60px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
+}
+
+.page-header-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.page-header-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Info row */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--skybook-gray-100);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row-label {
+  font-size: 0.85rem;
+  color: var(--skybook-gray-500);
+  font-weight: 500;
+}
+
+.info-row-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--skybook-gray-800);
+}
+
+/* Boarding pass style */
+.boarding-pass {
+  background: white;
+  border-radius: var(--skybook-radius-lg);
+  box-shadow: var(--skybook-shadow-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.boarding-pass::before,
+.boarding-pass::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--skybook-gray-50);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.boarding-pass::before {
+  left: -12px;
+}
+
+.boarding-pass::after {
+  right: -12px;
+}
+
+.boarding-pass-divider {
+  border-left: 2px dashed var(--skybook-gray-300);
+  position: relative;
+}
+
+/* Ticket tear effect */
+.ticket-tear {
+  position: relative;
+}
+
+.ticket-tear::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    var(--skybook-gray-50) 8px,
+    var(--skybook-gray-50) 16px
+  );
+}
+
+/* CTA section */
+.cta-section {
+  background: var(--skybook-gradient);
+  padding: 80px 0;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.2) 0%, transparent 60%);
+}
+
+.cta-section .cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-section .cta-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 32px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Airline logo colors */
+.airline-indigo { background: linear-gradient(135deg, #4f46e5, #818cf8); }
+.airline-air-india { background: linear-gradient(135deg, #dc2626, #f87171); }
+.airline-spicejet { background: linear-gradient(135deg, #eab308, #facc15); }
+.airline-vistara { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
+.airline-go-first { background: linear-gradient(135deg, #059669, #34d399); }
+.airline-akasa { background: linear-gradient(135deg, #ea580c, #fb923c); }
+
+/* Tag / chip styles */
+.skybook-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--skybook-radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--skybook-gray-100);
+  color: var(--skybook-gray-600);
+  transition: var(--skybook-transition);
+}
+
+.skybook-tag:hover {
+  background: var(--skybook-gray-200);
+}
+
+.skybook-tag-blue {
+  background: #dbeafe;
+  color: var(--skybook-blue);
+}
+
+.skybook-tag-green {
+  background: #dcfce7;
+  color: var(--skybook-green-dark);
+}
+
+/* Tooltip custom */
+.skybook-tooltip {
+  position: relative;
+}
+
+.skybook-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--skybook-navy);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.skybook-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--skybook-blue);
+  transition: width 0.3s ease;
+}
+
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  .skybook-navbar,
+  .skybook-footer,
+  .booking-progress,
+  .btn-skybook,
+  .btn-skybook-outline,
+  .btn-skybook-navy,
+  .btn-skybook-success,
+  .btn-skybook-danger,
+  .btn-skybook-ghost,
+  .search-card,
+  .filter-sidebar,
+  .skybook-toast,
+  .hero-section,
+  .cta-section,
+  .navbar-auth-btn,
+  .footer-newsletter {
+    display: none !important;
+  }
+
+  .skybook-card,
+  .flight-card,
+  .confirmation-card,
+  .boarding-pass,
+  .booking-list-card,
+  .profile-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  .confirmation-header {
+    background: #f0f0f0 !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-header {
+    background: #f0f0f0 !important;
+    color: black !important;
+    padding: 20px 0 !important;
+  }
+
+  .profile-header {
+    background: #f0f0f0 !important;
+    color: black !important;
+  }
+
+  .boarding-pass::before,
+  .boarding-pass::after {
+    display: none;
+  }
+
+  .booking-ref-code {
+    color: black !important;
+  }
+
+  @page {
+    margin: 1cm;
+  }
+}
